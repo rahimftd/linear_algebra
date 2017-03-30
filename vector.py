@@ -18,12 +18,23 @@ class Vector(object):
     def __eq__(self, v):
         return self.coordinates == v.coordinates
 
-    def plus(self, v):
+    def __add__(self, v):
         new_vector = []
-        for i in range(len(self.coordinates))
+        for i in range(len(self.coordinates)):
             new_coord = self.coordinates[i] + v.coordinates[i]
             new_vector.append(new_coord)
-        return new_vector
+        return Vector(new_vector)
 
-    def minus(self, v):
-        
+    def __sub__(self, v):
+        new_vector = []
+        for i in range(len(self.coordinates)):
+            new_coord = self.coordinates[i] - v.coordinates[i]
+            new_vector.append(new_coord)
+        return Vector(new_vector)
+
+    def scalar_multiply(self, s):
+        new_vector = []
+        for i in range(len(self.coordinates)):
+            new_coord = self.coordinates[i] * s
+            new_vector.append(new_coord)
+        return Vector(new_vector)
